@@ -29,6 +29,8 @@ public class BotDamage : MonoBehaviour
           Destroy(bot);
         }
     }
+
+    
     void OnGUI()
     {
         if(_target)

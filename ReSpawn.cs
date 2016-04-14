@@ -10,6 +10,7 @@ public class ReSpawn : MonoBehaviour {
     public GameObject[] bot;
     public GameObject[] botHomePoint;
     public GameObject playerHomePoint;
+    public GameObject[] healther;
     public float timer = 100;
     public float _timer = 0;
     public float _timer1 = 0;
@@ -18,12 +19,15 @@ public class ReSpawn : MonoBehaviour {
     void Start()
     {
         ReSpawnPlayer();
+        
     }
     void Update()
     {
-       ReSpawnBot(); 
-       ReSpawnBot1();
-       ReSpawnBot2();
+        
+            ReSpawnBot();
+       
+      ReSpawnBot1();
+      ReSpawnBot2();
     }
 
     void ReSpawnPlayer()
@@ -39,10 +43,10 @@ public class ReSpawn : MonoBehaviour {
             if (_timer == 0)
             {
                 _bot = Instantiate(bot[0], botHomePoint[0].transform.position, Quaternion.identity) as GameObject;
-                _bot.SendMessage("GuiSize", 1);
                 _bot.SendMessage("BotHomePoint", botHomePoint[0]);
+                _bot.SendMessage("GuiSize", 1);
                 _timer = timer;
-            }
+           }
             else _timer--;
         }
   
@@ -76,6 +80,11 @@ public class ReSpawn : MonoBehaviour {
             }
             else _timer2--;
         }
+    }
+
+    void MedicineUp(GameObject medicine)
+    {
+        Instantiate(medicine, new Vector3(Random.Range(-50.0F, 50.0F),10,Random.Range(-50.0F, 50.0F)), Quaternion.identity); 
     }
 
     void OnGUI()
