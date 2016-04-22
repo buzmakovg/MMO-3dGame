@@ -15,9 +15,10 @@ public class ANavMesh : MonoBehaviour
 	private float _attackTimer;
     public float attackDistance = 4;
     public float viewDistance = 15;
-    private int k;
-    private GameObject homePoint;
-    private GameObject player;  
+    private int j;
+    public GameObject homePoint;
+    private GameObject player;
+    private ReSpawn _rs;
 
     void Start()
     {
@@ -32,7 +33,6 @@ public class ANavMesh : MonoBehaviour
 
     void Update()
     {   
-        //GameObject[] _home = GameObject.FindGameObjectsWithTag("HomePointBot");
        player = GameObject.FindGameObjectWithTag("Player");
  
         Vector3 pos = player.transform.position;
@@ -42,24 +42,12 @@ public class ANavMesh : MonoBehaviour
         if (Vector3.Distance(_agent.transform.position, player.transform.position) < viewDistance)
         {
             _target = player.transform;
-            _agent.SendMessage("Target", true);
             transform.LookAt(pos);
 			anim.CrossFade(animRun.name);
 			_agent.SetDestination(_target.position); 
         }
         else
         {
-                //for (int i=0; i < _home.Length; i++)
-                // {
-                //   float _homemin = Vector3.Distance(_agent.transform.position, _home[0].transform.position);
-                // k = 0;
-                //if(Vector3.Distance(_agent.transform.position, _home[i].transform.position) < _homemin)
-                // {
-                //   _homemin = Vector3.Distance(_agent.transform.position, _home[i].transform.position);
-                //  k = i;
-                //}
-                //}
-            _agent.SendMessage("Target", false);
             _target = homePoint.transform;
 			if (Vector3.Distance (_agent.transform.position, _target.position) <= 0.005) 
 				anim.CrossFade (animIdle.name);

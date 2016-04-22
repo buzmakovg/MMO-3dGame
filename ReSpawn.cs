@@ -10,24 +10,21 @@ public class ReSpawn : MonoBehaviour {
     public GameObject[] bot;
     public GameObject[] botHomePoint;
     public GameObject playerHomePoint;
-    public GameObject[] healther;
     public float timer = 100;
     public float _timer = 0;
     public float _timer1 = 0;
     public float _timer2 = 0;
+    public float range = 40;
 
     void Start()
     {
         ReSpawnPlayer();
-        
     }
     void Update()
     {
-        
-            ReSpawnBot();
-       
-      ReSpawnBot1();
-      ReSpawnBot2();
+        ReSpawnBot();
+        ReSpawnBot1();
+        ReSpawnBot2();
     }
 
     void ReSpawnPlayer()
@@ -37,19 +34,17 @@ public class ReSpawn : MonoBehaviour {
 
     void ReSpawnBot()
     {
-
         if (_bot == null)
         {
             if (_timer == 0)
             {
                 _bot = Instantiate(bot[0], botHomePoint[0].transform.position, Quaternion.identity) as GameObject;
                 _bot.SendMessage("BotHomePoint", botHomePoint[0]);
-                _bot.SendMessage("GuiSize", 1);
                 _timer = timer;
-           }
+            }
             else _timer--;
         }
-  
+
     }
 
     void ReSpawnBot1()
@@ -59,7 +54,6 @@ public class ReSpawn : MonoBehaviour {
             if (_timer1 == 0)
             {
                 _bot1 = Instantiate(bot[1], botHomePoint[1].transform.position, Quaternion.identity) as GameObject;
-                _bot1.SendMessage("GuiSize", 2);
                 _bot1.SendMessage("BotHomePoint", botHomePoint[1]);
                 _timer1 = timer;
             }
@@ -74,7 +68,6 @@ public class ReSpawn : MonoBehaviour {
             if (_timer2 == 0)
             {
                 _bot2 = Instantiate(bot[2], botHomePoint[2].transform.position, Quaternion.identity) as GameObject;
-                _bot2.SendMessage("GuiSize", 3);
                 _bot2.SendMessage("BotHomePoint", botHomePoint[2]);
                 _timer2 = timer;
             }
@@ -82,26 +75,21 @@ public class ReSpawn : MonoBehaviour {
         }
     }
 
-    void MedicineUp(GameObject medicine)
-    {
-        Instantiate(medicine, new Vector3(Random.Range(-50.0F, 50.0F),10,Random.Range(-50.0F, 50.0F)), Quaternion.identity); 
-    }
-
     void OnGUI()
     {
-        if(_player == null)
+        if (_player == null)
         {
-            if(GUI.Button(new Rect(
-                Screen.width/16*7,
-                Screen.height/4,
-                Screen.width/8,
-                Screen.height/8),
+            if (GUI.Button(new Rect(
+                Screen.width / 16 * 7,
+                Screen.height / 4,
+                Screen.width / 8,
+                Screen.height / 8),
                 "Try Again"))
             {
                 ReSpawnPlayer();
             }
             if (GUI.Button(new Rect(
-                Screen.width / 16*7,
+                Screen.width / 16 * 7,
                 Screen.height / 2,
                 Screen.width / 8,
                 Screen.height / 8),
@@ -110,5 +98,10 @@ public class ReSpawn : MonoBehaviour {
                 Application.LoadLevel(0);
             }
         }
-    } 
+    }
+
+    void ReMedicine(GameObject healther)
+    {
+        Instantiate(healther, new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range)), Quaternion.identity);
+    }
 }
