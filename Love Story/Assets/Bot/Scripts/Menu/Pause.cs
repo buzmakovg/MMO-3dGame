@@ -9,23 +9,24 @@ public class Pause : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (Input.GetKey(KeyCode.M)) menu = true;
-        if (Input.GetKey(KeyCode.N)) menu = false;
+       // if (Input.GetKey(KeyCode.M)) menu = true;
+       // if (Input.GetKey(KeyCode.N)) menu = false;
     }
 
     void OnGUI()
     {
+        if (Input.GetKey(KeyCode.Escape)) menu = true;
         if (menu)
         {
-            // if(GUI.Button(new Rect(
-            //   Screen.width/16,
-            //   Screen.height/16,
-            //   Screen.width/16,
-            //   Screen.height/16),
-            //   "Resume"))
-            //{
-            //    menu = false;
-            //}
+             if(GUI.Button(new Rect(
+               Screen.width/16,
+               Screen.height/16,
+               Screen.width/16,
+               Screen.height/16),
+               "Resume"))
+            {
+                menu = false;
+            }
 
             if (GUI.Button(new Rect(
                 Screen.width / 16,
@@ -43,7 +44,7 @@ public class Pause : MonoBehaviour {
                 Screen.height / 16),
                 "Save"))
             {
-                Application.LoadLevel(0);
+
             }
             if (GUI.Button(new Rect(
                 Screen.width / 16,

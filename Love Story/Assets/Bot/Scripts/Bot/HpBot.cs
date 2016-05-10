@@ -40,17 +40,17 @@ public class HpBot: MonoBehaviour
             }
     }
 
-    void BotHp(float _hp)
+    void BotHp(float __hp)
     {
-        hp -= _hp;
+        hp -= __hp;
 
     }
     public void OnGUI()
     {
         if (_showName)
         {
-            GUI.Box(new Rect(_position.x, _position.y, 60f * _hp, 10f), "", bar);
-            GUI.Box(new Rect(_position.x, _position.y, 60f, 10f), "", fon );
+            GUI.Box(new Rect(_position.x, _position.y, 40f * _hp, 5f), "", bar);
+            GUI.Box(new Rect(_position.x, _position.y, 40f, 5f), "", fon );
         }
     }
 

@@ -83,10 +83,10 @@ public class PlayerDamage : MonoBehaviour
     void OnGUI()
     {
 
-        GUI.Box(new Rect(10f, 10f, 130f, 130f), "", kotikStyle);
-        GUI.Box(new Rect(18f, 69f, 114f * _hp, 8f), "", barStyle);
-        GUI.Box(new Rect(18f, 84f, 114f * _exp, 4f), "", expStyle);
-        GUI.Label(new Rect(60f, 40f, 20f, 20f), lvl + " lvl", lvlStyle);
+        GUI.Box(new Rect(Screen.width/8*7, 10f, 130f, 130f), "", kotikStyle);
+        GUI.Box(new Rect(Screen.width/8*7+8f, 69f, 114f * _hp, 8f), "", barStyle);
+        GUI.Box(new Rect(Screen.width/8*7+8f, 84f, 114f * _exp, 4f), "", expStyle);
+        GUI.Label(new Rect(Screen.width/8*7+50f, 40f, 20f, 20f), lvl + " lvl", lvlStyle);
 
         to = GUI.TextField(new Rect(Screen.width / 64, Screen.height / 16 * 15, Screen.width / 64 * 3, Screen.height / 16 - 5), to);
         text = GUI.TextField(new Rect(Screen.width / 16, Screen.height / 16 * 15, Screen.width / 4, Screen.height / 16 - 5), text);
