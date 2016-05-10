@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FC9411EB-1B12-4154-0219-EEA7CBD09863}</ProjectGuid>
+    <ProjectGuid>{AF3965AD-F2B3-D336-7874-AD860332DE10}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -48,12 +48,15 @@
      <Compile Include="Assets\Bot\Scripts\Bot\ANavMesh.cs" />
      <Compile Include="Assets\Bot\Scripts\Bot\BotDamage.cs" />
      <Compile Include="Assets\Bot\Scripts\Bot\HpBot.cs" />
+     <Compile Include="Assets\Bot\Scripts\DataBase\Scripts\Client.cs" />
+     <Compile Include="Assets\Bot\Scripts\DataBase\Scripts\ServerBD.cs" />
      <Compile Include="Assets\Bot\Scripts\Menu\Choose.cs" />
      <Compile Include="Assets\Bot\Scripts\Menu\Login.cs" />
      <Compile Include="Assets\Bot\Scripts\Menu\Pause.cs" />
      <Compile Include="Assets\Bot\Scripts\Other\ChatServer.cs" />
      <Compile Include="Assets\Bot\Scripts\Other\PlayerHealth.cs" />
      <Compile Include="Assets\Bot\Scripts\Other\ReSpawn.cs" />
+     <Compile Include="Assets\Bot\Scripts\Player\Bag.cs" />
      <Compile Include="Assets\Bot\Scripts\Player\PlayerAttack.cs" />
      <Compile Include="Assets\Bot\Scripts\Player\PlayerDamage.cs" />
      <Compile Include="Assets\Bot\Scripts\Player\ShowName.cs" />
@@ -68,10 +71,25 @@
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="Mono.Data.Sqlite">
+ <HintPath>C:/Users/Володя/Documents/GitHub/MMO-3dGame/Love Story/Assets/Managed/Mono.Data.Sqlite.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Configuration">
+ <HintPath>C:/Users/Володя/Documents/GitHub/MMO-3dGame/Love Story/Assets/Managed/System.Configuration.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Data">
+ <HintPath>C:/Users/Володя/Documents/GitHub/MMO-3dGame/Love Story/Assets/Managed/System.Data.dll</HintPath>
+ </Reference>
+ <Reference Include="System.EnterpriseServices">
+ <HintPath>C:/Users/Володя/Documents/GitHub/MMO-3dGame/Love Story/Assets/Managed/System.EnterpriseServices.dll</HintPath>
+ </Reference>
+ <Reference Include="System.Security">
+ <HintPath>C:/Users/Володя/Documents/GitHub/MMO-3dGame/Love Story/Assets/Managed/System.Security.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{8A372BAF-BA95-0346-D5FC-D82F8865A500}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{AF971591-1B2A-D6A9-E4C6-9D74A1155374}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
